@@ -5,6 +5,13 @@ VisualStudioVersion = 14.0.22310.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RenderingEngine", "RenderingEngine\RenderingEngine.csproj", "{1AA03EFF-A2F4-4EEC-AE36-AA1358E3EC67}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RenderingEngine.Tests", "RenderingEngine.Tests\RenderingEngine.Tests.csproj", "{80BF2B37-7BED-49F9-BE4D-89B2515617BD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{44ABBDDB-C506-4F05-9B1F-17CA208D9A32}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +22,10 @@ Global
 		{1AA03EFF-A2F4-4EEC-AE36-AA1358E3EC67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AA03EFF-A2F4-4EEC-AE36-AA1358E3EC67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1AA03EFF-A2F4-4EEC-AE36-AA1358E3EC67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80BF2B37-7BED-49F9-BE4D-89B2515617BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80BF2B37-7BED-49F9-BE4D-89B2515617BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80BF2B37-7BED-49F9-BE4D-89B2515617BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80BF2B37-7BED-49F9-BE4D-89B2515617BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
