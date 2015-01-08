@@ -6,7 +6,7 @@ namespace RenderingEngine
     {
         public IEnumerable<Node> Children { get; }
 
-        public Node(IEnumerable<Node> children)
+        protected Node(IEnumerable<Node> children)
         {
             Children = children;
         }

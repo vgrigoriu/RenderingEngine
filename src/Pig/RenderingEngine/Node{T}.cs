@@ -6,7 +6,7 @@ namespace RenderingEngine
     {
         public T Content { get; }
 
-        public Node(T content, IEnumerable<Node> children)
+        protected Node(T content, IEnumerable<Node> children)
             : base(children)
         {
             Content = content;
