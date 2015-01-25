@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AB36D949-55A8-4E6C-A616-28337B364C1E}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{6D4E3BF6-4A23-431E-A80C-EE4AC9C4925F}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HtmlParser</RootNamespace>
-    <AssemblyName>HtmlParser</AssemblyName>
+    <RootNamespace>Console</RootNamespace>
+    <AssemblyName>Console</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -39,12 +42,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Parser.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HtmlParser\HtmlParser.csproj">
+      <Project>{ab36d949-55a8-4e6c-a616-28337b364c1e}</Project>
+      <Name>HtmlParser</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RenderingEngine\RenderingEngine.csproj">
-      <Project>{1aa03eff-a2f4-4eec-ae36-aa1358e3ec67}</Project>
+      <Project>{1AA03EFF-A2F4-4EEC-AE36-AA1358E3EC67}</Project>
       <Name>RenderingEngine</Name>
     </ProjectReference>
   </ItemGroup>
