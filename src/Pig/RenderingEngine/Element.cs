@@ -25,5 +25,10 @@ namespace RenderingEngine
             : this(tagName, new Dictionary<string, string>(), Enumerable.Empty<Node>())
         {
         }
+
+        public override string ToString()
+        {
+            return string.Format("<{0}>...</{0}>", Content.TagName);
+        }
     }
 }

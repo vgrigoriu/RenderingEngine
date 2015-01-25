@@ -9,5 +9,10 @@ namespace RenderingEngine
         {
 
         }
+
+        public override string ToString()
+        {
+            return Content;
+        }
     }
 }
