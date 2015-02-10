@@ -75,6 +75,12 @@ namespace RenderingEngine.Tests
                 return accumulator.ToString();
             }
 
+			void INodeVisitor.Visit(Text element)
+			{
+				accumulator.Append(prefix);
+				accumulator.Append(element.Content);
+			}
+
 			void INodeVisitor.Visit(Element element)
 			{
 				accumulator.Append(prefix);
