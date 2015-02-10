@@ -49,7 +49,12 @@ namespace RenderingEngine.Tests
 
 			void INodeVisitor.Visit(Element element)
 			{
-				accumulator.AppendFormat("<{0} />", element.Content.TagName);
+				accumulator.AppendFormat("<{0}", element.Content.TagName);
+				foreach (var attribute in element.Content.Attributes)
+				{
+					accumulator.AppendFormat(" {0}=\"{1}\"", attribute.Key, attribute.Value);
+				}
+				accumulator.Append(" />");
 			}
 		}
     }
