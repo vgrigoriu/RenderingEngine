@@ -11,14 +11,14 @@ namespace RenderingEngine.Tests
     public class PrettyPrinterTests
     {
         [Fact]
-        public void PrettyPrinterOutputsElementName()
+        public void PrettyPrinterOutputsEmptyElement()
         {
             Node node = new Element("dodo");
 
             var sut = new PrettyPrinter();
             var output = sut.PrettyPrint(node);
 
-            Assert.Contains("<dodo", output);
+            Assert.Equal("<dodo />", output);
         }
 
         private class PrettyPrinter : INodeVisitor
@@ -38,7 +38,7 @@ namespace RenderingEngine.Tests
 
 			void INodeVisitor.Visit(Element element)
 			{
-				accumulator.AppendFormat("<{0}", element.Content.TagName);
+				accumulator.AppendFormat("<{0} />", element.Content.TagName);
 			}
 		}
     }
