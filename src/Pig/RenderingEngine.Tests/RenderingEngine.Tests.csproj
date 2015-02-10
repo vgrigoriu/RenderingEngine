@@ -60,6 +60,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HtmlParser\HtmlParser.csproj">
+      <Project>{ab36d949-55a8-4e6c-a616-28337b364c1e}</Project>
+      <Name>HtmlParser</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RenderingEngine\RenderingEngine.csproj">
       <Project>{1aa03eff-a2f4-4eec-ae36-aa1358e3ec67}</Project>
       <Name>RenderingEngine</Name>
