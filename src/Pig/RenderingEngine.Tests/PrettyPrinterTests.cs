@@ -45,6 +45,19 @@ namespace RenderingEngine.Tests
 </dodo>", output);
 		}
 
+		[Fact]
+		public void PrettyPrinterElementWithTextChild()
+		{
+			Node node = new Element("dodo", new[] { new Text("Ana are mere."),  });
+
+			var sut = new PrettyPrinter();
+			var output = sut.PrettyPrint(node);
+
+			Assert.Contains(@"<dodo>
+    Ana are mere.
+</dodo>", output);
+		}
+
 		private class PrettyPrinter : INodeVisitor
         {
             private readonly StringBuilder accumulator = new StringBuilder();
