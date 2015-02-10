@@ -29,7 +29,7 @@ namespace RenderingEngine.Tests
 			var sut = new PrettyPrinter();
 			var output = sut.PrettyPrint(node);
 
-			Assert.Contains("<dodo mimi=\"fifi\" />", output);
+			Assert.Equal("<dodo mimi=\"fifi\" />", output);
 		}
 
 		[Fact]
@@ -40,7 +40,7 @@ namespace RenderingEngine.Tests
 			var sut = new PrettyPrinter();
 			var output = sut.PrettyPrint(node);
 
-			Assert.Contains(@"<dodo>
+			Assert.Equal(@"<dodo>
     <kiki />
 </dodo>", output);
 		}
@@ -53,7 +53,7 @@ namespace RenderingEngine.Tests
 			var sut = new PrettyPrinter();
 			var output = sut.PrettyPrint(node);
 
-			Assert.Contains(@"<dodo>
+			Assert.Equal(@"<dodo>
     Ana are mere.
 </dodo>", output);
 		}
