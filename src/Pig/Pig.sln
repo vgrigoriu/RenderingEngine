@@ -8,9 +8,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RenderingEngine.Tests", "RenderingEngine.Tests\RenderingEngine.Tests.csproj", "{80BF2B37-7BED-49F9-BE4D-89B2515617BD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{44ABBDDB-C506-4F05-9B1F-17CA208D9A32}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\packages.config = .nuget\packages.config
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlParser", "HtmlParser\HtmlParser.csproj", "{AB36D949-55A8-4E6C-A616-28337B364C1E}"
 EndProject

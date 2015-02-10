@@ -1,30 +1,29 @@
 ﻿using System.Collections.Immutable;
-using Xunit;
+
+using NUnit.Framework;
 
 namespace RenderingEngine.Tests
 {
     public class ElementDataTests
     {
-        [Fact]
-        public void TagNameIsSetViaConstructorParameter()
+	    private const string TagName = "blink";
+
+	    public void TagNameIsSetViaConstructorParameter()
         {
-            var tagName = "blink";
-            var noAttributes = ImmutableDictionary.Create<string, string>();
+		    var noAttributes = ImmutableDictionary.Create<string, string>();
 
-            var sut = new ElementData(tagName, noAttributes);
+            var sut = new ElementData(TagName, noAttributes);
 
-            Assert.Equal(tagName, sut.TagName);
+            Assert.That(sut.TagName, Is.EqualTo(TagName));
         }
 
-        [Fact]
         public void AttributesAreSetViaConstructorParameter()
         {
-            var tagName = "blink";
             var noAttributes = ImmutableDictionary.Create<string, string>();
 
-            var sut = new ElementData(tagName, noAttributes);
+            var sut = new ElementData(TagName, noAttributes);
 
-            Assert.Equal(noAttributes, sut.Attributes);
+            Assert.That(sut.Attributes, Is.SameAs(noAttributes));
         }
     }
 }
