@@ -21,7 +21,18 @@ namespace RenderingEngine.Tests
             Assert.Equal("<dodo />", output);
         }
 
-        private class PrettyPrinter : INodeVisitor
+		[Fact]
+		public void PrettyPrinterOutputsEmptyElementWithAttributes()
+		{
+			Node node = new Element("dodo", new Dictionary<string, string> { {"mimi", "fifi"} });
+
+			var sut = new PrettyPrinter();
+			var output = sut.PrettyPrint(node);
+
+			Assert.Contains("<dodo mimi=\"fifi\" />", output);
+		}
+
+		private class PrettyPrinter : INodeVisitor
         {
             private StringBuilder accumulator = new StringBuilder();
 
