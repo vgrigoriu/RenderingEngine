@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 
@@ -29,6 +30,11 @@ namespace RenderingEngine
         public override string ToString()
         {
             return string.Format("<{0}>...</{0}>", Content.TagName);
+        }
+
+        public override void Accept(INodeVisitor visitor)
+        {
+            throw new NotImplementedException();
         }
     }
 }

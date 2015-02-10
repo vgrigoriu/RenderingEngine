@@ -10,5 +10,7 @@ namespace RenderingEngine
         {
             Children = children;
         }
+
+        public abstract void Accept(INodeVisitor visitor);
     }
 }

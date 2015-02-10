@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 namespace RenderingEngine
 {
@@ -8,6 +9,11 @@ namespace RenderingEngine
             : base(content, Enumerable.Empty<Node>())
         {
 
+        }
+
+        public override void Accept(INodeVisitor visitor)
+        {
+            throw new NotImplementedException();
         }
 
         public override string ToString()

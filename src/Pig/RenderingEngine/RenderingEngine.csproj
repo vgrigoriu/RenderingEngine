@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Element.cs" />
     <Compile Include="ElementData.cs" />
+    <Compile Include="INodeVisitor.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="Node{T}.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
