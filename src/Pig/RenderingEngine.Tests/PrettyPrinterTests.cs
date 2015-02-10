@@ -32,9 +32,24 @@ namespace RenderingEngine.Tests
 			Assert.Contains("<dodo mimi=\"fifi\" />", output);
 		}
 
+		[Fact]
+		public void PrettyPrinterOutputsElementWithElementChild()
+		{
+			Node node = new Element("dodo", new[] {new Element("kiki") });
+
+			var sut = new PrettyPrinter();
+			var output = sut.PrettyPrint(node);
+
+			Assert.Contains(@"<dodo>
+    <kiki />
+</dodo>", output);
+		}
+
 		private class PrettyPrinter : INodeVisitor
         {
-            private StringBuilder accumulator = new StringBuilder();
+            private readonly StringBuilder accumulator = new StringBuilder();
+
+			private string prefix = string.Empty;
 
             public PrettyPrinter()
             {
@@ -49,12 +64,32 @@ namespace RenderingEngine.Tests
 
 			void INodeVisitor.Visit(Element element)
 			{
+				accumulator.Append(prefix);
 				accumulator.AppendFormat("<{0}", element.Content.TagName);
 				foreach (var attribute in element.Content.Attributes)
 				{
 					accumulator.AppendFormat(" {0}=\"{1}\"", attribute.Key, attribute.Value);
 				}
-				accumulator.Append(" />");
+
+				if (!element.Children.Any())
+				{
+					accumulator.Append(" />");
+				}
+				else
+				{
+					accumulator.Append(">");
+					prefix = prefix + "    ";
+					foreach (var child in element.Children)
+					{
+						accumulator.AppendLine();
+						child.Accept(this);
+					}
+					prefix = prefix.Substring(4);
+
+					accumulator.AppendLine();
+					accumulator.Append(prefix);
+					accumulator.AppendFormat("</{0}>", element.Content.TagName);
+				}
 			}
 		}
     }
