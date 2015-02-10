@@ -34,7 +34,7 @@ namespace RenderingEngine
 
         public override void Accept(INodeVisitor visitor)
         {
-            throw new NotImplementedException();
+	        visitor.Visit(this);
         }
     }
 }

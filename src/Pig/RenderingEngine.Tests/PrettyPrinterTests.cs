@@ -18,7 +18,7 @@ namespace RenderingEngine.Tests
             var sut = new PrettyPrinter();
             var output = sut.PrettyPrint(node);
 
-            Assert.Contains("dodo", output);
+            Assert.Contains("<dodo", output);
         }
 
         private class PrettyPrinter : INodeVisitor
@@ -35,6 +35,11 @@ namespace RenderingEngine.Tests
 
                 return accumulator.ToString();
             }
-        }
+
+			void INodeVisitor.Visit(Element element)
+			{
+				accumulator.AppendFormat("<{0}", element.Content.TagName);
+			}
+		}
     }
 }

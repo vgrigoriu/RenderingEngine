@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace RenderingEngine
 {
-    public interface INodeVisitor
-    {
-    }
+	public interface INodeVisitor
+	{
+		void Visit(Element element);
+	}
 }
