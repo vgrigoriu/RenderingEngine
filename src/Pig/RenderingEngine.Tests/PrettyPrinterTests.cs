@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 using HtmlParser;
 using Xunit;
@@ -8,22 +6,22 @@ using Xunit;
 namespace RenderingEngine.Tests
 {
 	public class PrettyPrinterTests
-    {
-        [Fact]
-        public void PrettyPrinterOutputsEmptyElement()
-        {
-            Node node = new Element("dodo");
+	{
+		[Fact]
+		public void PrettyPrinterOutputsEmptyElement()
+		{
+			Node node = new Element("dodo");
 
-            var sut = new PrettyPrinter();
-            var output = sut.PrettyPrint(node);
+			var sut = new PrettyPrinter();
+			var output = sut.PrettyPrint(node);
 
-            Assert.Equal("<dodo />", output);
-        }
+			Assert.Equal("<dodo />", output);
+		}
 
 		[Fact]
 		public void PrettyPrinterOutputsEmptyElementWithAttributes()
 		{
-			Node node = new Element("dodo", new Dictionary<string, string> { {"mimi", "fifi"} });
+			Node node = new Element("dodo", new Dictionary<string, string> { { "mimi", "fifi" } });
 
 			var sut = new PrettyPrinter();
 			var output = sut.PrettyPrint(node);
@@ -34,7 +32,7 @@ namespace RenderingEngine.Tests
 		[Fact]
 		public void PrettyPrinterOutputsElementWithElementChild()
 		{
-			Node node = new Element("dodo", new[] {new Element("kiki") });
+			Node node = new Element("dodo", new[] { new Element("kiki") });
 
 			var sut = new PrettyPrinter();
 			var output = sut.PrettyPrint(node);
@@ -47,7 +45,7 @@ namespace RenderingEngine.Tests
 		[Fact]
 		public void PrettyPrinterElementWithTextChild()
 		{
-			Node node = new Element("dodo", new[] { new Text("Ana are mere."),  });
+			Node node = new Element("dodo", new[] { new Text("Ana are mere.") });
 
 			var sut = new PrettyPrinter();
 			var output = sut.PrettyPrint(node);
@@ -73,59 +71,5 @@ namespace RenderingEngine.Tests
     <g />
 </a>", output);
 		}
-
-		private class PrettyPrinter : INodeVisitor
-        {
-            private readonly StringBuilder accumulator = new StringBuilder();
-
-			private string prefix = string.Empty;
-
-            public PrettyPrinter()
-            {
-            }
-
-            internal string PrettyPrint(Node node)
-            {
-                node.Accept(this);
-
-                return accumulator.ToString();
-            }
-
-			void INodeVisitor.Visit(Text element)
-			{
-				accumulator.Append(prefix);
-				accumulator.Append(element.Content);
-			}
-
-			void INodeVisitor.Visit(Element element)
-			{
-				accumulator.Append(prefix);
-				accumulator.AppendFormat("<{0}", element.Content.TagName);
-				foreach (var attribute in element.Content.Attributes)
-				{
-					accumulator.AppendFormat(" {0}=\"{1}\"", attribute.Key, attribute.Value);
-				}
-
-				if (!element.Children.Any())
-				{
-					accumulator.Append(" />");
-				}
-				else
-				{
-					accumulator.Append(">");
-					prefix = prefix + "    ";
-					foreach (var child in element.Children)
-					{
-						accumulator.AppendLine();
-						child.Accept(this);
-					}
-					prefix = prefix.Substring(4);
-
-					accumulator.AppendLine();
-					accumulator.Append(prefix);
-					accumulator.AppendFormat("</{0}>", element.Content.TagName);
-				}
-			}
-		}
-    }
+	}
 }
